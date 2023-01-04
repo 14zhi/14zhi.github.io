@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+   
+}
+
+body {
+    background-color: #feff01;
+}
+
+img {
+    flex-shrink: 0;
+}
+
+header {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    background-color: #00fff1;
+}
+
+header a {
+    font-size: 50px;
+    margin: 0 12px;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.part {
+    display: flex;
+    margin: 100px 0;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: flex-start;
+}

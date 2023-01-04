@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="js/echarts.min.js"></script>
+    <script src="js/vintage.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#">马拉松</a>
+        
+    </header>
+    <div class="banner">
+        <img src="./images/banner.png">
+    </div>
+
+    <div class="part">
+        <div id="main" style="width: 1000px;height:600px;"></div>
+        <img src="./images/3.png">
+    </div>
+
+    <div class="part">
+        <img src="./images/1.png">
+        <div id="main2" style="width: 1000px;height:600px;"></div>
+    </div>
+    <div class="part">
+        <img src="./images/4.png">
+        <div id="main3" style="width: 700px;height:400px;"></div>
+        <img src="./images/5.png">
+    </div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'), 'vintage');
+
+        // 指定图表的配置项和数据
+        option = {
+            backgroundColor: "#feff01",
+            title: {
+                text: '全程马拉松奖金 vs 半程马拉松奖金',
+                subtext: '马拉松',
+                subtextstyle: {
+                    lineHeight: 20,
+                    width: 100,
+                    overflow: 'break'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['全程马拉松奖金', '半程马拉松奖金']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                },
+                orient: 'vertical',
+                itemsize: 60,
+                iconstyle: {
+                    color: 'white',
+                    borderColor: 'gray'
+                },
+                emphasis: {
+                    iconstyle: {
+                        textPosition: 'right',
+                        textFill: 'white',
+                        textBackgroundColor: 'pink',
+                        textPadding: 20
+                    }
+                }
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                // prettier-ignore
+                data: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名l', '第七名', '第八名'],
+                axisLabel: {
+                    color: 'gray',
+                    fontSize: 15
+                }
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: '全程马拉松奖金',
+                type: 'bar',
+                data: [
+                    150000, 60000, 50000, 40000, 30000, 20000, 10000, 5000
+                ],
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: 'Max'
+                    }, {
+                        type: 'min',
+                        name: 'Min'
+                    }]
+                },
+                markLine: {
+                    data: [{
+                        type: 'average',
+                        name: 'Avg'
+                    }]
+                }
+            }, {
+                name: '半程马拉松奖金',
+                type: 'bar',
+                data: [
+                    20000, 7000, 6000, 5000, 4000, 3000, 2000, 1000
+                ],
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: 'Max'
+                    }, {
+                        type: 'min',
+                        name: 'Min'
+                    }]
+                },
+                markLine: {
+                    data: [{
+                        type: 'average',
+                        name: 'Avg'
+                    }]
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'), 'vintage');
+
+        // 指定图表的配置项和数据
+        option = {
+            backgroundColor: "#feff01",
+            title: {
+                text: '成都马拉松各年参赛人数对比',
+                subtext: '参赛人数',
+                subtextstyle: {
+                    lineHeight: 20,
+                    width: 100,
+                    overflow: 'break'
+                }
+            },
+            legend: {},
+    tooltip: {
+      trigger: 'axis',
+      showContent: false
+    },
+    dataset: {
+      source: [
+        ['年份', '2018', '2019', '2020', '2021', '2022'],
+        ['全程马拉松', 10000, 15000, 20000, 25000, 20000],
+        ['半程马拉松', 17000, 1000, 10000, 1000,  10000],
+        ['欢乐马拉松', 3000, 5000, 3000, 0,  5000],
+      ]
+    },
+    xAxis: { type: 'category' },
+    yAxis: { gridIndex: 0 },
+    grid: { top: '55%' },
+    series: [
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'pie',
+        id: 'pie',
+        radius: '30%',
+        center: ['50%', '25%'],
+        emphasis: {
+          focus: 'self'
+        },
+        label: {
+          formatter: '{b}: {@2022} ({d}%)'
+        },
+        encode: {
+          itemName: '年份',
+          value: '2022',
+          tooltip: '2022'
+        }
+      }
+    ]
+  };
+  myChart.on('updateAxisPointer', function (event) {
+    const xAxisInfo = event.axesInfo[0];
+    if (xAxisInfo) {
+      const dimension = xAxisInfo.value + 1;
+      myChart.setOption({
+        series: {
+          id: 'pie',
+          label: {
+            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+          },
+          encode: {
+            value: dimension,
+            tooltip: dimension
+          }
+        }
+      });
+    }
+  });
+ 
+  
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+        var myChart = echarts.init(document.getElementById('main3'), 'vintage');
+
+        // 指定图表的配置项和数据
+        var option = {
+            backgroundColor: "#feff01",
+            title: {
+                text: '各年龄段男、女奔跑有效时间',
+                subtext: '时间',
+                subtextStyle: {
+                    overflow: 'break'
+                },
+                top: 0
+            },
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: 'mousemove' //鼠标移动显示
+
+            },
+            legend: {
+                data: ['男', '女'],
+                orient: 'vewtral',
+                right: 200
+
+            },
+            grid: {
+                left: 70,
+                top: 60
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {
+                        readOnly: false
+                    },
+                    magicType: {
+                        type: ['bar', 'bar']
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                },
+                top: 0
+            },
+            xAxis: {
+                data: ['20-34岁', '35-39岁', '40-45岁', '50-54岁', '55-59岁', '60-64岁', '65-69岁', '70-74岁', '75-79岁', '80+岁'],
+                axisLabel: {
+                    fontSize: 10,
+                    color: 'black'
+
+                }
+            },
+            yAxis: {},
+            series: [{
+                    name: '男',
+                    type: 'bar',
+                    data: [180, 185, 190, 200, 205, 215, 245, 260, 275, 295],
+                    lineStyle: {
+                        width:10
+                    },
+
+                },
+
+                {
+                    name: '女',
+                    type: 'bar',
+                    data: [210, 215, 220, 230, 235, 245, 260, 275, 290, 305],
+                    barStyle: {
+                        width: 20
+                    },
+                    label: {
+
+                        fontSize: 10,
+                        color: 'yellow'
+
+                    },
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
